@@ -1,19 +1,66 @@
-# README
+# Wails To-Do List Application
 
-## About
+This is a cross-platform desktop application for managing a to-do list, built with [Wails](https://wails.io/), Go, and React. The application allows you to create, view, mark, and delete tasks. Each task has a title, a due date (date only), and a priority level (Low, Medium, or High). Task data is stored locally in a JSON file so that your tasks persist between sessions.
 
-This is the official Wails Vanilla template.
+![Screenshot 1](./app.png)
 
-You can configure the project by editing `wails.json`. More information about the project settings can be found
-here: https://wails.io/docs/reference/project-config
+## Features
 
-## Live Development
+- **Task Management:**
+    - Add new tasks with a title, due date, and priority.
+    - View tasks divided into Active and Completed lists.
+    - Mark tasks as complete/incomplete.
+    - Delete tasks with confirmation.
 
-To run in live development mode, run `wails dev` in the project directory. This will run a Vite development
-server that will provide very fast hot reload of your frontend changes. If you want to develop in a browser
-and have access to your Go methods, there is also a dev server that runs on http://localhost:34115. Connect
-to this in your browser, and you can call your Go code from devtools.
+- **Data Persistence:**
+    - Tasks are stored in a local JSON file (e.g., `tasks.json`), ensuring that your tasks are saved between application restarts.
 
-## Building
+- **Modern UI:**
+    - Built with React and styled using a minimalistic blue-themed design.
+    - Uses Vite for fast development and bundling.
 
-To build a redistributable, production mode package, use `wails build`.
+- **Wails Integration:**
+    - A native desktop application powered by Wails for a seamless cross-platform experience.
+
+## Technologies Used
+
+- **Go** – Backend logic and data handling.
+- **JSON** – Local data storage (tasks are saved in a JSON file).
+- **React** – Frontend user interface.
+- **Wails** – Framework for building native desktop applications with Go and JavaScript.
+
+## Installation and Setup
+
+### Prerequisites
+
+- [Go 1.21 or later](https://golang.org/dl/)
+- [Node.js 21.x or later](https://nodejs.org/)
+- [Wails CLI](https://wails.io/docs/gettingstarted/installation/)  
+  Install with:
+  ```bash
+  go install github.com/wailsapp/wails/v2/cmd/wails@latest
+    ```
+  Clone the Repository
+  ```bash  
+    git clone https://github.com/don1yal/GO_TODO
+    cd GO_TODO
+  ```
+    Install Dependencies
+
+    From the root directory of the project, run:
+    ```bash
+    wails build -clean
+    ```
+  
+    This command will install both Go and Node.js dependencies.
+
+    To ensure that all dependencies are correctly installed, run:
+    ```bash
+    wails doctor
+    ```
+    Running the Application
+
+    To run the application in development mode, from the root directory (where wails.json is located), execute:
+    ```bash
+    wails dev
+    ```
