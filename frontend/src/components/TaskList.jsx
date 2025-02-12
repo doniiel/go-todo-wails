@@ -39,13 +39,13 @@ export function TaskList({ tasks, onDelete, onToggleComplete }) {
                                 className={task.completed ? "undo-btn" : "complete-btn"}
                                 onClick={() => onToggleComplete(task.id)}
                             >
-                                {task.completed ? "Undo" : "Complete"}
+                                {task.completed ? <i className="fa-solid fa-rotate-left"></i> : <i className="fa-solid fa-check"></i>}
                             </button>
                             <button
                                 className="delete-btn"
                                 onClick={() => onDelete(task.id)}
                             >
-                                Delete
+                                <i className="fa-solid fa-trash"></i>
                             </button>
                         </div>
                     </li>
