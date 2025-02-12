@@ -6,6 +6,9 @@ export namespace todo {
 	    completed: boolean;
 	    // Go type: time
 	    created_at: any;
+	    // Go type: time
+	    due_date?: any;
+	    priority?: string;
 	
 	    static createFrom(source: any = {}) {
 	        return new Task(source);
@@ -17,6 +20,8 @@ export namespace todo {
 	        this.title = source["title"];
 	        this.completed = source["completed"];
 	        this.created_at = this.convertValues(source["created_at"], null);
+	        this.due_date = this.convertValues(source["due_date"], null);
+	        this.priority = source["priority"];
 	    }
 	
 		convertValues(a: any, classs: any, asMap: boolean = false): any {

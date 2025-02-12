@@ -16,7 +16,6 @@ type Store struct {
 }
 
 // NewStore возвращает новый экземпляр хранилища.
-// storagePath – путь к JSON-файлу, где будем хранить задачи.
 func NewStore(storagePath string) *Store {
 	return &Store{
 		tasks:       []Task{},
@@ -63,17 +62,20 @@ func (s *Store) GetTasks() []Task {
 	return s.tasks
 }
 
-// AddTask добавляет новую задачу.
-func (s *Store) AddTask(title string) (Task, error) {
+func (s *Store) AddTask(title string, dueDate *time.Time, priority string) (Task, error) {
 	if title == "" {
 		return Task{}, errors.New("title cannot be empty")
 	}
+
 	newTask := Task{
 		ID:        uuid.NewString(),
 		Title:     title,
 		Completed: false,
 		CreatedAt: time.Now(),
+		DueDate:   dueDate,
+		Priority:  priority,
 	}
+
 	s.tasks = append(s.tasks, newTask)
 	err := s.Save()
 	if err != nil {
